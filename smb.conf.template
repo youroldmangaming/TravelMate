@@ -1,0 +1,48 @@
+# smb.conf.template
+cat > smb.conf.template << 'EOF'
+[global]
+    workgroup = ${SMB_WORKGROUP}
+    server string = ${SMB_SERVER_NAME} File Server
+    log file = /var/log/samba/log.%m
+    max log size = 1000
+    logging = file
+    map to guest = bad user
+    security = user
+    encrypt passwords = yes
+    passdb backend = tdbsam
+    dns proxy = no
+
+[shared]
+    comment = Shared Folder
+    path = /shared
+    browseable = yes
+    read only = no
+    create mask = 0777
+    directory mask = 0777
+    guest ok = yes
+    force user = ${SMB_USERNAME}
+EOF
+
+# exports.template
+cat > exports.template << 'EOF'
+# /etc/exports: NFS file systems being exported
+/shared ${NFS_ALLOWED_NETWORK}(rw,sync,no_subtree_check,no_root_squash)
+EOF
+
+# hostapd.conf.template
+cat > hostapd.conf.template << 'EOF'
+interface=${NETWORK_INTERFACE_AP}
+driver=nl80211
+ssid=${WIFI_SSID}
+hw_mode=g
+channel=${WIFI_CHANNEL}
+wmm_enabled=0
+macaddr_acl=0
+auth_algs=1
+ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=${WIFI_PASSWORD}
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+EOF
