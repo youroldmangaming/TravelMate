@@ -39,7 +39,7 @@ sudo usermod -aG docker $USER
 ### 3. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/rpi-travel-router.git
+git clone https://github.com/youroldmangaming/travelmate.git
 cd rpi-travel-router
 ```
 
