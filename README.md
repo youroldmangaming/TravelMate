@@ -40,7 +40,7 @@ sudo usermod -aG docker $USER
 
 ```bash
 git clone https://github.com/youroldmangaming/travelmate.git
-cd rpi-travel-router
+cd TravelMate
 ```
 
 ### 4. Configure Your Router
