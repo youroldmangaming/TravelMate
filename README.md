@@ -60,8 +60,8 @@ nano .env
 ### 5. Build and Run
 
 ```bash
-make build
-make run
+sudo make build
+sudo make run
 ```
 
 The first build may take some time as it downloads and installs all necessary packages.
